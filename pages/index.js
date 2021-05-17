@@ -6,22 +6,22 @@ import Icons from 'components/Icons';
 export default function Home({ links }) {
   return (
     <Box
-      bgGradient={`linear(to-b, #ff57a7, #d45353)`}
+      bgGradient={`linear(to-b, rgb(212, 99, 163), rgb(253, 143, 103))`}
       height="100vh"
       width="100%"
       color="white"
       overflow="auto"
       pt={8}
       pb={10}
-      px={[2, 6]}
+      px={4}
     >
       <VStack maxWidth="600px" mx="auto">
         <Avatar src="images/avatar.jpg" size="2xl" />
         <Description />
         <VStack spacing={5} w="100%">
           {links.map((link) => (
-            <ButtonLink key={link.title} url={link.url}>
-              {
+            <ButtonLink
+              leftIcon={
                 {
                   [LINK_KINDS.shop]: <Icons.Shop boxSize={6} mr={2} />,
                   [LINK_KINDS.youtube]: <Icons.YouTubeTV boxSize={6} mr={2} />,
@@ -32,6 +32,10 @@ export default function Home({ links }) {
                   [LINK_KINDS.facebook]: <Icons.Facebook boxSize={6} mr={2} />,
                 }[link.kind]
               }
+              rightIcon={<Icons.CaretRight />}
+              key={link.title}
+              url={link.url}
+            >
               {link.title}
             </ButtonLink>
           ))}
@@ -52,27 +56,31 @@ const Description = () => {
   );
 };
 
-const ButtonLink = ({ url, children }) => {
+const ButtonLink = ({ url, leftIcon = null, rightIcon = null, children }) => {
   return (
     <Link href={url} passHref>
       <HStack
+        pos="relative"
         as="a"
         target="_blank"
         rel="noreferrer noopener"
-        justifyContent="center"
         alignItems="center"
         w="100%"
         border="3px solid #ffffff"
         borderRadius={8}
         cursor="pointer"
-        px={3}
-        py={2}
+        py={3}
+        px={4}
         sx={{
           transition: 'all 0.2s linear',
         }}
         _hover={{ bgColor: '#fff', color: '#ff57A7' }}
       >
-        <Text>{children}</Text>
+        {leftIcon && <Box>{leftIcon}</Box>}
+        <Text flex={1} textAlign="left">
+          {children}
+        </Text>
+        {rightIcon && <Box>{rightIcon}</Box>}
       </HStack>
     </Link>
   );
@@ -88,17 +96,22 @@ export async function getServerSideProps() {
 
 const links = [
   {
-    title: '周邊、實體 (Merch / Albums)',
+    title: '買周邊 、實體專輯 (Merch / Albums)',
     url: 'https://shopee.tw/sweetjohnband',
     kind: LINK_KINDS.shop,
   },
   {
-    title: 'YouTube',
+    title: 'Merch (World Shipping)',
+    url: 'https://goo.gl/4Pp2aw',
+    kind: LINK_KINDS.shop,
+  },
+  {
+    title: 'Music Videos',
     url: 'https://www.youtube.com/c/SweetJohn%E7%94%9C%E7%B4%84%E7%BF%B0',
     kind: LINK_KINDS.youtube,
   },
   {
-    title: 'Spotify.iTunes.Apple Music',
+    title: 'Spotify / iTunes / Apple Music',
     url: 'http://rock-mobile.lnk.to/SweetJohn',
     kind: LINK_KINDS.music,
   },
@@ -111,10 +124,5 @@ const links = [
     title: 'Facebook',
     url: 'https://www.facebook.com/sweetjohnband',
     kind: LINK_KINDS.facebook,
-  },
-  {
-    title: 'Merch (World Shipping)',
-    url: 'https://goo.gl/4Pp2aw',
-    kind: LINK_KINDS.shop,
   },
 ];
