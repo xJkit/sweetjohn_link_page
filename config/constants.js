@@ -4,4 +4,7 @@ export const LINK_KINDS = {
   instagram: 'instagram',
   facebook: 'Facebook',
   music: 'music',
+  plane: 'plane',
+  spotify: 'spotify',
+  kkbox: 'kkbox',
 };
