@@ -45,7 +45,7 @@ export default function Home({ links, socialLinks }) {
             </ButtonLink>
           ))}
         </VStack>
-        <HStack minW="200px" justifyContent="space-around">
+        <HStack minW="220px" justifyContent="space-around">
           {socialLinks.map((link) => (
             <IconButton
               key={link.title}
@@ -54,17 +54,17 @@ export default function Home({ links, socialLinks }) {
               onClick={() => window.open(link.url, '_blank')}
               boxShadow="none"
               border="none"
-              _active={{}}
               _hover={{
                 transform: 'scale(1.2)',
               }}
               icon={
                 {
                   [LINK_KINDS.instagram]: (
-                    <Icons.Instagram boxSize={7} mr={2} />
+                    <Icons.Instagram boxSize={6} mr={2} />
                   ),
-                  [LINK_KINDS.facebook]: <Icons.Facebook boxSize={7} mr={2} />,
-                  [LINK_KINDS.youtube]: <Icons.YouTubeTV boxSize={7} mr={2} />,
+                  [LINK_KINDS.facebook]: <Icons.Facebook boxSize={6} mr={2} />,
+                  [LINK_KINDS.youtube]: <Icons.YouTubeTV boxSize={6} mr={2} />,
+                  [LINK_KINDS.weibo]: <Icons.Weibo boxSize={6} mr={2} />,
                 }[link.kind]
               }
             />
@@ -138,5 +138,10 @@ const socialLinks = [
     title: 'Facebook',
     url: 'https://www.facebook.com/sweetjohnband',
     kind: LINK_KINDS.facebook,
+  },
+  {
+    title: 'Weibo',
+    url: 'https://weibo.com/SweetJohn',
+    kind: LINK_KINDS.weibo,
   },
 ];

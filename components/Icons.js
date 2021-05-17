@@ -1,10 +1,15 @@
 import React from 'react';
 import { Icon } from '@chakra-ui/react';
 // react-icons
-import { FaShoppingBag, FaFacebookSquare, FaSpotify } from 'react-icons/fa';
+import {
+  FaShoppingBag,
+  FaFacebookSquare,
+  FaSpotify,
+  FaWeibo,
+} from 'react-icons/fa';
 import { BiAlbum } from 'react-icons/bi';
 import { BsCaretRight } from 'react-icons/bs';
-import { AiFillInstagram, AiFillFacebook } from 'react-icons/ai';
+import { AiFillInstagram } from 'react-icons/ai';
 import { SiYoutubetv, SiApplemusic } from 'react-icons/si';
 import { ImAirplane } from 'react-icons/im';
 
@@ -21,6 +26,7 @@ Icons.Facebook = (props) => <Icon as={FaFacebookSquare} {...props} />;
 Icons.Spotify = (props) => <Icon as={FaSpotify} {...props} />;
 Icons.CaretRight = (props) => <Icon as={BsCaretRight} {...props} />;
 Icons.Airplane = (props) => <Icon as={ImAirplane} {...props} />;
+Icons.Weibo = (props) => <Icon as={FaWeibo} {...props} />;
 Icons.KKBOX = (props) => (
   <Icon viewBox="0 0 100 100" {...props}>
     <defs>

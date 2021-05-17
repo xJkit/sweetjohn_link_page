@@ -7,4 +7,5 @@ export const LINK_KINDS = {
   plane: 'plane',
   spotify: 'spotify',
   kkbox: 'kkbox',
+  weibo: 'weibo',
 };
