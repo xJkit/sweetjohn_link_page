@@ -1,14 +1,8 @@
-import {
-  VStack,
-  HStack,
-  Avatar,
-  Text,
-  Box,
-  IconButton,
-} from '@chakra-ui/react';
+import { VStack, HStack, Text, Box, IconButton } from '@chakra-ui/react';
 import { LINK_KINDS } from 'config/constants';
 import ButtonLink from 'components/ButtonLink';
 import Icons from 'components/Icons';
+import Avatar from 'components/Avatar';
 import SEO from 'components/SEO';
 
 export default function Home({ links, socialLinks }) {
@@ -19,6 +13,7 @@ export default function Home({ links, socialLinks }) {
         bgGradient={`linear(to-b, rgb(212, 99, 163), rgb(253, 143, 103))`}
         height="100vh"
         width="100%"
+        minWidth="300px"
         color="white"
         overflow="auto"
         pt={8}
@@ -26,7 +21,7 @@ export default function Home({ links, socialLinks }) {
         px={4}
       >
         <VStack maxWidth="400px" mx="auto">
-          <Avatar width="128px" src="images/avatar.jpg" size="2xl" />
+          <Avatar src="/images/avatar.jpg" />
           <Description />
           <VStack spacing={6} w="100%" pb={6}>
             {links.map((link) => (
