@@ -8,4 +8,5 @@ export const LINK_KINDS = {
   spotify: 'spotify',
   kkbox: 'kkbox',
   weibo: 'weibo',
+  bandcamp: 'bandcamp',
 };

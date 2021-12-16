@@ -33,6 +33,9 @@ export default function Home({ links, socialLinks }) {
                     [LINK_KINDS.music]: <Icons.MusicApp boxSize={5} mr={2} />,
                     [LINK_KINDS.spotify]: <Icons.Spotify boxSize={5} mr={2} />,
                     [LINK_KINDS.kkbox]: <Icons.KKBOX boxSize={6} mr={2} />,
+                    [LINK_KINDS.bandcamp]: (
+                      <Icons.Bandcamp boxSize={6} mr={2} />
+                    ),
                   }[link.kind]
                 }
                 rightIcon={<Icons.CaretRight />}
@@ -123,6 +126,11 @@ const links = [
     title: 'KKBOX',
     url: 'https://www.kkbox.com/tw/tc/artist/ijqPB6aBrH.z420F0.h-X08K-index-1.html',
     kind: LINK_KINDS.kkbox,
+  },
+  {
+    title: 'Bandcamp',
+    url: 'https://sweetjohn.bandcamp.com/releases',
+    kind: LINK_KINDS.bandcamp,
   },
 ];
 
