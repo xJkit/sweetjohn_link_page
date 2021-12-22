@@ -129,7 +129,7 @@ const links = [
   },
   {
     title: 'Bandcamp',
-    url: 'https://sweetjohn.bandcamp.com/releases',
+    url: 'https://sweetjohn.bandcamp.com/music',
     kind: LINK_KINDS.bandcamp,
   },
 ];
