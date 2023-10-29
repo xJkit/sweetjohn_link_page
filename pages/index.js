@@ -4,6 +4,10 @@ import Link from 'next/link';
 import Icons from 'components/Icons';
 import Avatar from 'components/Avatar';
 import SEO from 'components/SEO';
+import { motion } from 'framer-motion';
+
+const MotionButtonLink = motion(ButtonLink)
+const MotionLink = motion(Link)
 
 export default function Home({ links, socialLinks }) {
   return (
@@ -14,8 +18,11 @@ export default function Home({ links, socialLinks }) {
           <Avatar src="/images/avatar.jpg" />
           <Description />
           <div className='w-full space-y-6 pb-6'>
-            {links.map((link) => (
-              <ButtonLink
+            {links.map((link, idx) => (
+              <MotionButtonLink
+                initial={{ opacity: 0, x: -30 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ ease: 'easeOut', duration: 0.5, delay: 1 + idx * 0.2 }}
                 leftIcon={
                   {
                     [LINK_KINDS.shop]: <Icons.Shop size={20} className="mr-2" />,
@@ -33,18 +40,24 @@ export default function Home({ links, socialLinks }) {
                 url={link.url}
               >
                 {link.title}
-              </ButtonLink>
+              </MotionButtonLink>
             ))}
           </div>
-          <div className='flex min-w-[220px] justify-around'>
-            {socialLinks.map((link) => (
-              <Link
+          <div
+            className='flex min-w-[220px] justify-around'
+            >
+            {socialLinks.map((link, idx) => (
+              <MotionLink
                 key={link.title}
                 role='button'
                 color="white"
                 href={link.url}
                 target='_blank'
-                className='inline-block transition-all duration-200 hover:scale-125'
+                className='inline-block hover:scale-125'
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 2.5 + idx * 0.2 }}
+                whileHover={{ scale: 1.2 }}
               >
                 {{
                     [LINK_KINDS.instagram]: (
@@ -58,7 +71,7 @@ export default function Home({ links, socialLinks }) {
                     ),
                     [LINK_KINDS.weibo]: <Icons.Weibo size={30} />,
                   }[link.kind]}
-              </Link>
+              </MotionLink>
             ))}
           </div>
         </div>
@@ -69,10 +82,10 @@ export default function Home({ links, socialLinks }) {
 const Description = () => {
   return (
     <div className='pt-2 pb-4'>
-      <p className='font-bold text-xl'>
-        Sweet John Band
-      </p>
-      <p>Sweet John Indie Band from Taiwan</p>
+      <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 2, delay: 0.2 }} className='font-bold text-xl'>
+        Sweet John
+      </motion.p>
+      <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 2, delay: 0.6 }}>Sweet John Indie Band from Taiwan</motion.p>
     </div>
   );
 };

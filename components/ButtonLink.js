@@ -1,10 +1,12 @@
+import { forwardRef } from 'react';
 import Link from 'next/link';
 
-const ButtonLink = ({ url, leftIcon = null, rightIcon = null, children }) => {
+const ButtonLink = ({ url, leftIcon = null, rightIcon = null, children }, ref) => {
   return (
     <Link
+      ref={ref}
       href={url}
-      className='relative flex items-center w-full border-white border-2 rounded-xl cursor-pointer py-3 px-4 transition-all duration-300 hover:bg-white hover:text-[#ff57A7]'
+      className='relative flex items-center w-full border-white border-2 rounded-xl cursor-pointer py-3 px-4 hover:bg-white hover:text-[#ff57A7]'
       target="_blank"
       rel="noreferrer noopener"
     >
@@ -17,4 +19,4 @@ const ButtonLink = ({ url, leftIcon = null, rightIcon = null, children }) => {
   );
 };
 
-export default ButtonLink;
+export default forwardRef(ButtonLink);
