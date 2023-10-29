@@ -61,15 +61,15 @@ export default function Home({ links, socialLinks }) {
                 icon={
                   {
                     [LINK_KINDS.instagram]: (
-                      <Icons.Instagram boxSize={6} mr={2} />
+                      <Icons.Instagram boxSize={6} mr={6} />
                     ),
                     [LINK_KINDS.facebook]: (
-                      <Icons.Facebook boxSize={6} mr={2} />
+                      <Icons.Facebook boxSize={6} mr={6} />
                     ),
                     [LINK_KINDS.youtube]: (
-                      <Icons.YouTubeTV boxSize={6} mr={2} />
+                      <Icons.YouTubeTV boxSize={20} mr={6} />
                     ),
-                    [LINK_KINDS.weibo]: <Icons.Weibo boxSize={6} mr={2} />,
+                    [LINK_KINDS.weibo]: <Icons.Weibo boxSize={6} mr={6} />,
                   }[link.kind]
                 }
               />
