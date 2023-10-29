@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@socialgouv/matomo-next':
+    specifier: ^1.8.0
+    version: 1.8.0(next@14.0.0)
   framer-motion:
     specifier: ^10.16.4
     version: 10.16.4(react-dom@18.2.0)(react@18.2.0)
@@ -273,6 +276,14 @@ packages:
   /@rushstack/eslint-patch@1.5.1:
     resolution: {integrity: sha512-6i/8UoL0P5y4leBIGzvkZdS85RDMG9y1ihZzmTZQ5LdHUYmZ7pKFoj8X0236s3lusPs1Fa5HTQUpwI+UfTcmeA==}
     dev: true
+
+  /@socialgouv/matomo-next@1.8.0(next@14.0.0):
+    resolution: {integrity: sha512-00EdsbW0u/VrKFa7DfVjnXV4oXA6Ag3kkCisSL2nFseRQhEsds5T8xsAgvNQAtiMW9AR6Mz3TNZt7A2/mIb9kA==}
+    peerDependencies:
+      next: '>= 9.5.5'
+    dependencies:
+      next: 14.0.0(react-dom@18.2.0)(react@18.2.0)
+    dev: false
 
   /@swc/helpers@0.5.2:
     resolution: {integrity: sha512-E4KcWTpoLHqwPHLxidpOqQbcrZVgi0rsmmZXUle1jXmJfuIf/UWpczUJ7MZZ5tlxytgJXyp0w4PGkkeLiuIdZw==}

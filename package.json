@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@socialgouv/matomo-next": "^1.8.0",
     "framer-motion": "^10.16.4",
     "next": "14.0.0",
     "next-seo": "^4.24.0",
