@@ -11,7 +11,13 @@ export default function Avatar({ src, ...props }) {
       overflow="hidden"
       {...props}
     >
-      <Image src={src} alt="sweetjohn avatar" width={128} height={128} />
+      <Image
+        priority
+        src={src}
+        alt="sweetjohn avatar"
+        width={128}
+        height={128}
+      />
     </Center>
   );
 }

@@ -3,7 +3,7 @@ import { HStack, Text, Box } from '@chakra-ui/react';
 
 const ButtonLink = ({ url, leftIcon = null, rightIcon = null, children }) => {
   return (
-    <Link href={url} passHref>
+    <Link href={url} passHref legacyBehavior>
       <HStack
         pos="relative"
         as="a"
