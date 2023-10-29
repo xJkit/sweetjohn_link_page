@@ -1,16 +1,8 @@
 import Image from 'next/image';
-import { Center } from '@chakra-ui/react';
 
 export default function Avatar({ src, ...props }) {
   return (
-    <Center
-      as="span"
-      display="inline-flex"
-      borderRadius="full"
-      pos="relative"
-      overflow="hidden"
-      {...props}
-    >
+    <div className='inline-flex relative overflow-hidden rounded-full' {...props}>
       <Image
         priority
         src={src}
@@ -18,6 +10,6 @@ export default function Avatar({ src, ...props }) {
         width={128}
         height={128}
       />
-    </Center>
+    </div>
   );
 }

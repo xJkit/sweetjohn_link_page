@@ -1,4 +1,3 @@
-import { VStack, HStack, Text, Box, IconButton } from '@chakra-ui/react';
 import { LINK_KINDS } from 'config/constants';
 import ButtonLink from 'components/ButtonLink';
 import Icons from 'components/Icons';
@@ -9,32 +8,22 @@ export default function Home({ links, socialLinks }) {
   return (
     <>
       <SEO />
-      <Box
-        bgGradient={`linear(to-b, rgb(212, 99, 163), rgb(253, 143, 103))`}
-        height="100vh"
-        width="100%"
-        minWidth="300px"
-        color="white"
-        overflow="auto"
-        pt={8}
-        pb={10}
-        px={4}
-      >
-        <VStack maxWidth="400px" mx="auto">
+      <div className='bg-gradient-to-b from-[#D463A3] to-[#FD8F67] h-screen w-full min-w-[300px] text-white overflow-auto pt-8 pb-10 px-4'>
+        <div className='max-w-[400px] mx-auto text-center'>
           <Avatar src="/images/avatar.jpg" />
           <Description />
-          <VStack spacing={6} w="100%" pb={6}>
+          <div className='w-full space-y-6 pb-6'>
             {links.map((link) => (
               <ButtonLink
                 leftIcon={
                   {
-                    [LINK_KINDS.shop]: <Icons.Shop boxSize={5} mr={2} />,
-                    [LINK_KINDS.plane]: <Icons.Airplane boxSize={5} mr={2} />,
-                    [LINK_KINDS.music]: <Icons.MusicApp boxSize={5} mr={2} />,
-                    [LINK_KINDS.spotify]: <Icons.Spotify boxSize={5} mr={2} />,
-                    [LINK_KINDS.kkbox]: <Icons.KKBOX boxSize={6} mr={2} />,
+                    [LINK_KINDS.shop]: <Icons.Shop size={20} className="mr-2" />,
+                    [LINK_KINDS.plane]: <Icons.Airplane size={20} className="mr-2" />,
+                    [LINK_KINDS.music]: <Icons.MusicApp size={20} className="mr-2" />,
+                    [LINK_KINDS.spotify]: <Icons.Spotify size={20} className="mr-2" />,
+                    [LINK_KINDS.kkbox]: <Icons.KKBOX size={24} className="mr-2" />,
                     [LINK_KINDS.bandcamp]: (
-                      <Icons.Bandcamp boxSize={6} mr={2} />
+                      <Icons.Bandcamp size={20} className="mr-2" />
                     ),
                   }[link.kind]
                 }
@@ -45,50 +34,43 @@ export default function Home({ links, socialLinks }) {
                 {link.title}
               </ButtonLink>
             ))}
-          </VStack>
-          <HStack minW="220px" justifyContent="space-around">
+          </div>
+          <div className='flex min-w-[220px] justify-around'>
             {socialLinks.map((link) => (
-              <IconButton
+              <button
                 key={link.title}
-                variant="link"
                 color="white"
                 onClick={() => window.open(link.url, '_blank')}
-                boxShadow="none"
-                border="none"
-                _hover={{
-                  transform: 'scale(1.2)',
-                }}
-                icon={
-                  {
+                className='transition-all duration-200 hover:scale-125'
+              >
+                {{
                     [LINK_KINDS.instagram]: (
-                      <Icons.Instagram boxSize={6} mr={6} />
+                      <Icons.Instagram size={30} />
                     ),
                     [LINK_KINDS.facebook]: (
-                      <Icons.Facebook boxSize={6} mr={6} />
+                      <Icons.Facebook size={30} />
                     ),
                     [LINK_KINDS.youtube]: (
-                      <Icons.YouTubeTV boxSize={20} mr={6} />
+                      <Icons.YouTubeTV size={30} />
                     ),
-                    [LINK_KINDS.weibo]: <Icons.Weibo boxSize={6} mr={6} />,
-                  }[link.kind]
-                }
-              />
+                    [LINK_KINDS.weibo]: <Icons.Weibo size={30} />,
+                  }[link.kind]}
+              </button>
             ))}
-          </HStack>
-        </VStack>
-      </Box>
+          </div>
+        </div>
+      </div>
     </>
   );
 }
-
 const Description = () => {
   return (
-    <VStack pt={2} pb={4}>
-      <Text fontWeight="bold" fontSize={['xl']}>
+    <div className='pt-2 pb-4'>
+      <p className='font-bold text-xl'>
         Sweet John Band
-      </Text>
-      <Text>Sweet John Indie Band from Taiwan</Text>
-    </VStack>
+      </p>
+      <p>Sweet John Indie Band from Taiwan</p>
+    </div>
   );
 };
 
