@@ -1,5 +1,6 @@
 import { LINK_KINDS } from 'config/constants';
 import ButtonLink from 'components/ButtonLink';
+import Link from 'next/link';
 import Icons from 'components/Icons';
 import Avatar from 'components/Avatar';
 import SEO from 'components/SEO';
@@ -8,7 +9,7 @@ export default function Home({ links, socialLinks }) {
   return (
     <>
       <SEO />
-      <div className='bg-gradient-to-b from-[#D463A3] to-[#FD8F67] h-screen w-full min-w-[300px] text-white overflow-auto pt-8 pb-10 px-4'>
+      <div className='bg-gradient-to-b from-[#D463A3] to-[#FD8F67] h-screen w-full min-w-[300px] text-white overflow-auto pt-8 pb-16 px-4'>
         <div className='max-w-[400px] mx-auto text-center'>
           <Avatar src="/images/avatar.jpg" />
           <Description />
@@ -37,11 +38,13 @@ export default function Home({ links, socialLinks }) {
           </div>
           <div className='flex min-w-[220px] justify-around'>
             {socialLinks.map((link) => (
-              <button
+              <Link
                 key={link.title}
+                role='button'
                 color="white"
-                onClick={() => window.open(link.url, '_blank')}
-                className='transition-all duration-200 hover:scale-125'
+                href={link.url}
+                target='_blank'
+                className='inline-block transition-all duration-200 hover:scale-125'
               >
                 {{
                     [LINK_KINDS.instagram]: (
@@ -55,7 +58,7 @@ export default function Home({ links, socialLinks }) {
                     ),
                     [LINK_KINDS.weibo]: <Icons.Weibo size={30} />,
                   }[link.kind]}
-              </button>
+              </Link>
             ))}
           </div>
         </div>
