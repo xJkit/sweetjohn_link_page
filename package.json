@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:report": "ANALYZE=true next build",
     "start": "next start"
   },
   "dependencies": {
@@ -17,6 +18,7 @@
     "react-icons": "^4.2.0"
   },
   "devDependencies": {
+    "@next/bundle-analyzer": "^14.0.0",
     "autoprefixer": "^10.4.16",
     "eslint-config-next": "^14.0.0",
     "postcss": "^8.4.31",
