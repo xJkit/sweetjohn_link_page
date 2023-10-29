@@ -6,9 +6,6 @@ import Avatar from 'components/Avatar';
 import SEO from 'components/SEO';
 import { motion } from 'framer-motion';
 
-const MotionButtonLink = motion(ButtonLink)
-const MotionLink = motion(Link)
-
 export default function Home({ links, socialLinks }) {
   return (
     <>
@@ -19,59 +16,64 @@ export default function Home({ links, socialLinks }) {
           <Description />
           <div className='w-full space-y-6 pb-6'>
             {links.map((link, idx) => (
-              <MotionButtonLink
+              <motion.div
+                key={link.title}
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ x: 0, opacity: 1 }}
-                transition={{ ease: 'easeOut', duration: 0.5, delay: 1 + idx * 0.2 }}
-                leftIcon={
-                  {
-                    [LINK_KINDS.shop]: <Icons.Shop size={20} className="mr-2" />,
-                    [LINK_KINDS.plane]: <Icons.Airplane size={20} className="mr-2" />,
-                    [LINK_KINDS.music]: <Icons.MusicApp size={20} className="mr-2" />,
-                    [LINK_KINDS.spotify]: <Icons.Spotify size={20} className="mr-2" />,
-                    [LINK_KINDS.kkbox]: <Icons.KKBOX size={24} className="mr-2" />,
-                    [LINK_KINDS.bandcamp]: (
-                      <Icons.Bandcamp size={20} className="mr-2" />
-                    ),
-                  }[link.kind]
-                }
-                rightIcon={<Icons.CaretRight />}
-                key={link.title}
-                url={link.url}
+                transition={{ ease: 'easeOut', duration: 0.5, delay: 1.3 + idx * 0.2 }}
               >
-                {link.title}
-              </MotionButtonLink>
+                <ButtonLink
+                  leftIcon={
+                    {
+                      [LINK_KINDS.shop]: <Icons.Shop size={20} className="mr-2" />,
+                      [LINK_KINDS.plane]: <Icons.Airplane size={20} className="mr-2" />,
+                      [LINK_KINDS.music]: <Icons.MusicApp size={20} className="mr-2" />,
+                      [LINK_KINDS.spotify]: <Icons.Spotify size={20} className="mr-2" />,
+                      [LINK_KINDS.kkbox]: <Icons.KKBOX size={24} className="mr-2" />,
+                      [LINK_KINDS.bandcamp]: (
+                        <Icons.Bandcamp size={20} className="mr-2" />
+                      ),
+                    }[link.kind]
+                  }
+                  rightIcon={<Icons.CaretRight />}
+                  url={link.url}
+                >
+                  {link.title}
+                </ButtonLink>
+              </motion.div>
             ))}
           </div>
           <div
             className='flex min-w-[220px] justify-around'
             >
             {socialLinks.map((link, idx) => (
-              <MotionLink
+              <motion.div
                 key={link.title}
-                role='button'
-                color="white"
-                href={link.url}
-                target='_blank'
-                className='inline-block hover:scale-125'
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 2.5 + idx * 0.2 }}
-                whileHover={{ scale: 1.2 }}
               >
-                {{
-                    [LINK_KINDS.instagram]: (
-                      <Icons.Instagram size={30} />
-                    ),
-                    [LINK_KINDS.facebook]: (
-                      <Icons.Facebook size={30} />
-                    ),
-                    [LINK_KINDS.youtube]: (
-                      <Icons.YouTubeTV size={30} />
-                    ),
-                    [LINK_KINDS.weibo]: <Icons.Weibo size={30} />,
-                  }[link.kind]}
-              </MotionLink>
+                <Link
+                  role='button'
+                  color="white"
+                  href={link.url}
+                  target='_blank'
+                  className='inline-block transition-all duration-300 hover:scale-125'
+                >
+                  {{
+                      [LINK_KINDS.instagram]: (
+                        <Icons.Instagram size={30} />
+                      ),
+                      [LINK_KINDS.facebook]: (
+                        <Icons.Facebook size={30} />
+                      ),
+                      [LINK_KINDS.youtube]: (
+                        <Icons.YouTubeTV size={30} />
+                      ),
+                      [LINK_KINDS.weibo]: <Icons.Weibo size={30} />,
+                    }[link.kind]}
+                </Link>
+              </motion.div>
             ))}
           </div>
         </div>

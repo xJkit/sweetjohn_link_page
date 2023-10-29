@@ -1,8 +1,17 @@
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 export default function Avatar({ src, ...props }) {
   return (
-    <div className='inline-flex relative overflow-hidden rounded-full' {...props}>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{
+        duration: 0.5,
+      }}
+      className='inline-flex relative overflow-hidden rounded-full'
+      {...props}
+    >
       <Image
         priority
         src={src}
@@ -10,6 +19,6 @@ export default function Avatar({ src, ...props }) {
         width={128}
         height={128}
       />
-    </div>
+    </motion.div>
   );
 }

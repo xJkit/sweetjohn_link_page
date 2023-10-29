@@ -6,7 +6,7 @@ const ButtonLink = ({ url, leftIcon = null, rightIcon = null, children }, ref) =
     <Link
       ref={ref}
       href={url}
-      className='relative flex items-center w-full border-white border-2 rounded-xl cursor-pointer py-3 px-4 hover:bg-white hover:text-[#ff57A7]'
+      className='relative flex items-center w-full border-white border-2 rounded-xl cursor-pointer py-3 px-4 hover:bg-white transition-all duration-300 hover:text-[#ff57A7]'
       target="_blank"
       rel="noreferrer noopener"
     >
