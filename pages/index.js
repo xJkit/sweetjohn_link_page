@@ -103,14 +103,14 @@ export async function getStaticProps() {
 
 const links = [
   {
-    title: 'Merch & Albums',
+    title: 'Merch & Albums (Taiwan)',
     url: 'https://shopee.tw/sweetjohnband',
     kind: LINK_KINDS.shop,
   },
   {
     title: 'Merch (World Shipping)',
-    url: 'https://goo.gl/4Pp2aw',
-    kind: LINK_KINDS.plane,
+    url: 'https://sweetjohn.bandcamp.com/music',
+    kind: LINK_KINDS.bandcamp,
   },
   {
     title: 'Apple Music',
@@ -126,11 +126,6 @@ const links = [
     title: 'KKBOX',
     url: 'https://www.kkbox.com/tw/tc/artist/ijqPB6aBrH.z420F0.h-X08K-index-1.html',
     kind: LINK_KINDS.kkbox,
-  },
-  {
-    title: 'Bandcamp',
-    url: 'https://sweetjohn.bandcamp.com/music',
-    kind: LINK_KINDS.bandcamp,
   },
 ];
 
