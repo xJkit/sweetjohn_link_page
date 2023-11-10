@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import MatomoTracker from 'components/MatomoTracker';
+import GA from 'components/GA';
 
 import '../global.css';
 
@@ -11,6 +12,7 @@ function MyApp({ Component, pageProps }) {
         <meta charSet="utf-8" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
+      <GA />
       <MatomoTracker />
       <Component {...pageProps} />
     </>
