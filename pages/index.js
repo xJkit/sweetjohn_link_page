@@ -109,7 +109,7 @@ const links = [
   },
   {
     title: 'Merch (World Shipping)',
-    url: 'https://sweetjohn.bandcamp.com/music',
+    url: 'https://sweetjohn.bandcamp.com/merch',
     kind: LINK_KINDS.bandcamp,
   },
   {
